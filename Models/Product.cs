@@ -4,14 +4,6 @@ namespace BlazingShop.Models;
 
 public class Product
 {
-	public Product(int id, string title, decimal price, int categoryId)
-	{
-		Id = id;
-		Title = title;
-		Price = price;
-		CategoryId = categoryId;
-	}
-
 	[Key]
 	[Required(ErrorMessage = "Id é obrigatório")]
 	public int Id { get; set; }
@@ -20,8 +12,7 @@ public class Product
 	[MaxLength(150, ErrorMessage = "Título deve ter no máximo 150 caracteres")]
 	[MinLength(5, ErrorMessage = "Título deve ter no mínimo 5 caracteres")]
 	public string Title { get; set; } = string.Empty;
-
-	[Required(ErrorMessage = "Preço é obrigatório")]
+		[Required(ErrorMessage = "Preço é obrigatório")]
 	[DataType(DataType.Currency)]
 	[Range(0, 9999, ErrorMessage = "Preço deve estar entre 0 e 9999")]
 	public decimal Price { get; set; }
